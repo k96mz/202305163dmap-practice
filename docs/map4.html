@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Display a map - Practice 3</title>
+<title>Display a map - Practice 4</title>
 <meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no" />
 <script src="./maplibre-gl@2.4.0/maplibre-gl.js"></script>
 <link href="./maplibre-gl@2.4.0/maplibre-gl.css" rel="stylesheet" />
@@ -16,27 +16,13 @@
 <script>
 var map = new maplibregl.Map({
 container: 'map', // container id
-style: 'https://ubukawa.github.io/practice-bm/srtm.json', // style URL
+style: 'https://ubukawa.github.io/practice-bm/srtm-3d.json', // style URL
 maxZoom: 19, // max zoom of the map
 maxPatch: 85,
 hash: true
 });
 
-//for 3D terrain
-map.on('load', () => {
- map.addSource("terrain3D",{
-   "type": "raster-dem",
-   "tiles": ["https://ubukawa.github.io/srtm-rgb-nyc/zxy/{z}/{x}/{y}.png"],
-   "attribution": "RGB Elevation from SRTM DEM - 1 second (USGS)",
-   "tileSize": 256,
-   "maxzoom": 12,
-   "minzoom": 4
- });
- map.setTerrain({
-   source: "terrain3D",
-   exaggeration: 1
- });
-});
+
 
 //UI
 map.addControl(new maplibregl.NavigationControl(), 'bottom-right');
